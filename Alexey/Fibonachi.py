@@ -1,6 +1,14 @@
-digit = int(input("Please type count of digits: "))
-a, b = 0, 1
+def main():
+    digit = int(input("Please type count of digits: "))
+    fibonachi(digit)
 
-while len(str(b)) != digit + 1:
-    print(b)
-    a, b = b, a + b
+
+
+def fibonachi(digit):
+    a, b = 0, 1
+    while len(str(b)) != digit + 1:
+        print(b)
+        a, b = b, a + b
+
+if __name__ == '__main__':
+    main()
