@@ -3,12 +3,12 @@ def main():
     fibonachi(digit)
 
 
-
 def fibonachi(digit):
     a, b = 0, 1
-    while len(str(b)) != digit + 1:
+    for num in range(0, digit):
         print(b)
         a, b = b, a + b
+
 
 if __name__ == '__main__':
     main()
