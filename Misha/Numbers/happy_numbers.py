@@ -10,7 +10,6 @@ def find_sum_of_digits(number, recursion_call):
         if recursion_call < 10:
             recursion_call += 1
             summ = find_sum_of_digits(summ, recursion_call)
-    # почему summ=1 но возвращается первое найденное summ
     return summ
 
 
