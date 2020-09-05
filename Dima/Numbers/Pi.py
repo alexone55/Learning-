@@ -1,38 +1,30 @@
 from time import time
-
-"""
-
-
-В математической части этого алгоритма я так и не разобрался пока,
-Так что код был по сути просто позаимствован, но пока
-я пытался разобраться с синтаксическими конструкциями
-почитал про yield в циклах
-И метод join для строк
-Про библиотеку time
+import decimal  # Lib for using decimal fractions
+from decimal import *
 
 
-"""
-def make_pi():
-    q, r, t, k, m, x = 1, 0, 1, 1, 3, 3
-    for j in range(10000):
-        if 4 * q + r - t < m * t:
-            yield m         # Насколько я понял, он возвращает генератор.
-            q, r, t, k, m, x = 10 * q, 10 * (r - m * t), t, k, (10 * (3 * q + r)) // t - 10 * m, x
-        else:
-            q, r, t, k, m, x = q * k, (2 * q + r) * x, t * x, k + 1, (q * (7 * k + 2) + r * x) // (t * x), x + 2
-
-number = int(input()) + 2
-digits = make_pi()
-pi_list = []
-my_array = []
-
-start = time()
-for i in make_pi():
-    my_array.append(str(i))
-
-my_array = my_array[:1] + ['.'] + my_array[1:]
-big_string = "".join(my_array[: number])
+def make_pi(n):
+    decimal.getcontext().prec = n + 1
+    C = 426880 * decimal.Decimal(10005).sqrt()
+    K = 6.
+    M = 1.
+    X = 1
+    L = 13591409
+    S = L
+    for i in range(1, n):
+        M = M * (K ** 3 - 16 * K) / ((i + 1) ** 3)
+        L += 545140134
+        X *= -262537412640768000
+        S += decimal.Decimal(M * L) / X
+    pi = C / S
+    return pi
 
 
-print(float(big_string))
-print("Time", time() - start)
+def main():
+    n = int(input("Enter the n`th number to show the Pi digits after comma : "))
+    print(make_pi(n))
+
+
+if __name__ == "__main__":
+    main()
+
