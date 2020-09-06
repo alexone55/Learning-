@@ -8,14 +8,14 @@ def help():
     return 0
 
 
-def check():
-    value = entry_cardnum.get()
+def validate_card_number():
+    str_cardnum = entry_cardnum.get()
     regexp = r'\d{4}[-]{1}\d{4}[-]{1}\d{4}[-]{1}\d{4}'
-    if re.fullmatch(regexp, value):
+    if re.fullmatch(regexp, str_cardnum):
         cardnum = []
-        for i in range(len(value)):
-            if value[i].isdigit():
-                cardnum.append(int(value[i]))
+        for i in range(len(str_cardnum)):
+            if str_cardnum[i].isdigit():
+                cardnum.append(int(str_cardnum[i]))
         for i in range(len(cardnum)):
             if (i + 1) % 2 == 1:
                 cardnum[i] *= 2
@@ -36,7 +36,7 @@ root.geometry("287x120+70+70")
 root.resizable(False, False)
 
 btn_check = Button(text="Check", background="#87CEEB", foreground="#000000", font="Arial 10",
-                     command=check, width=10)
+                     command=validate_card_number, width=10)
 btn_help = Button(text="?", background="#87CEEB", foreground="#FFFFFF", font="Arial 7",
                   command=help, width=1)
 
