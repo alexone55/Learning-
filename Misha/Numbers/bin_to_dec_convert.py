@@ -3,17 +3,17 @@ from tkinter import messagebox
 
 
 def isbinary(value):
-    boolean = True
-    checkstr = "01"
+    check_var = True
+    check_str = "01"
     if value.isdigit():
         if value[0] != '0':
             for i in range(len(value)):
                 if str(value[i]) not in checkstr:
-                    boolean = False
+                    check_var = False
                     break
     else:
-        boolean = True
-    return boolean
+        check_var = True
+    return check_var
 
 """я не понимаю как тут использовать entry_digit без добавления данной функции внутрь функции bin_to_dec_convert"""
 def convert():
