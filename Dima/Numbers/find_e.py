@@ -1,11 +1,11 @@
 import time
-import math
+from factorial_finder import factorial_by_for
 
 
 def make_e(n):
     sum1 = 1
     for i in range(1, n + 1):
-        sum1 = sum1 + (1 / math.factorial(i))
+        sum1 = sum1 + (1 / factorial_by_for(i))
     result = round(sum1, n)
     return result
 
