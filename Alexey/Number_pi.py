@@ -4,11 +4,11 @@ def main():
 
 
 def number_pi(digit):
-
+    i = 1000000
     pi = 1
 
-    for i in range(1, 100000000):
-        pi += ((-1) ** i) * (1 / (2 * i +1))
+    for i in range(1, 2000000):
+        pi += ((-1) ** i) * (1 / (2 * i + 1))
 
     result = pi * 4
     print(round(result, digit))
