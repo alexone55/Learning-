@@ -1,7 +1,17 @@
 def main():
     answer = input("Choose operation d/m/e/a/r: ")
-
-
+    if answer.lower() == 'd':
+        divide()
+    elif answer.lower() == 'm':
+        multiplying()
+    elif answer.lower() == 'e':
+        extracting()
+    elif answer.lower() == 'a':
+        adding()
+    elif answer.lower() == 'r':
+        root()
+    else:
+        print("WOW! ALIEN CALCULATION!")
 def divide():
     x = int(input("Type number:"))
     y = int(input("Type number:"))
