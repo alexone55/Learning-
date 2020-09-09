@@ -18,5 +18,6 @@ def main():
     total_time = end_time - start_time
     print('Time:', total_time)
 
+
 if __name__ == "__main__":
     main()
