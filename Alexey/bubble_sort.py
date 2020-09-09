@@ -5,7 +5,7 @@ def main():
 
 
 def sort(array):
-    for id_i, i in enumerate(array):
+    for i in array:
         for id_y, y in enumerate(array):
             if array[id_y] > array[id_y + 1]:
                 array[id_y], array[id_y + 1] = array[id_y + 1], array[id_y]
