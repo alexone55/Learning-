@@ -1,8 +1,10 @@
 import time
 import decimal  # Lib for using decimal fractions
 from decimal import *
+from time_decorator import timer
 
 
+@timer
 def make_pi(n):
     decimal.getcontext().prec = n + 1
     C = 426880 * decimal.Decimal(10005).sqrt()
@@ -22,11 +24,7 @@ def make_pi(n):
 
 def main():
     n = int(input("Enter the n`th number to show the Pi digits after comma : "))
-    start_time = time.time()
     print(make_pi(n))
-    end_time = time.time()
-    total_time = end_time - start_time
-    print('Time:', total_time)
 
 
 if __name__ == "__main__":
