@@ -1,6 +1,15 @@
+import random
+
+
 def main():
-    count_of_flips = int(input("Enter count of flip: "))
-    flip_simulator(count_of_flips)
+    answer = input("Flip a coin?: y/n ")
+    if answer.lower() == "y":
+
+        random_number = random.randint(1, 100)
+        flip_simulator(random_number)
+        main()
+    else:
+        pass
 
 
 def flip_simulator(count_of_flips):
