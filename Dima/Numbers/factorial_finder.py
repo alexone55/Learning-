@@ -31,9 +31,6 @@ def main():
     print(factorial_by_recursion(n))
     print(factorial_by_for(n))
     print(factorial_by_while(n))
-    # print('Recursion:', timer(factorial_by_recursion, n), "-time")
-    # print('while:    ', timer(factorial_by_while, n), "-time")
-    # print('for:      ', timer(factorial_by_for, n), "-time")
 
 
 if __name__ == "__main__":
