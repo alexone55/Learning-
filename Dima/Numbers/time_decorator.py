@@ -5,7 +5,7 @@ def timer(function):
         start_time = time.time()
         result = function(*args, **kwargs)
         end_time = time.time()
-        print('[*] Время выполнения: {} секунд.'.format(end_time - start_time))
+        print('Время выполнения: {} секунд.'.format(end_time - start_time))
         return result
     return start_to_finish_time
 
