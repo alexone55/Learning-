@@ -17,7 +17,7 @@ def lets_find_city_distance(x1, y1, x2, y2):
     distance = math.sqrt(abs(delta_x) ** 2 +
                          abs(delta_y) ** 2)
 
-    print(distance)
+    print(float(distance))
 
 
 if __name__ == '__main__':
