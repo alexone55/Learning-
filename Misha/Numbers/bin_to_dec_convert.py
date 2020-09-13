@@ -1,4 +1,4 @@
-def isbinary(value):
+def is_binary(value):
     check_var = True
     binary_digits_string = "01"
     if value.isdigit():
@@ -14,7 +14,7 @@ def isbinary(value):
 
 def main():
     string_value=input('Enter binary value: ')
-    if isbinary(string_value):
+    if is_binary(string_value):
         dec = 0
         for i in range(len(string_value)):
             dec += int(string_value[i]) * (2 ** (len(string_value) - i - 1))
