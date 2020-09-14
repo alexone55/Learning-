@@ -1,47 +1,54 @@
 import math
+import cmath
 
 
 def main():
-    answer = input("Which example do you want to solve: 1/2/3/4/5/6/7: ")
-    x = input("Enter f(x): ")
+    answer = int(input("Which problem do you want to solve from 1 to 7: "))
+    x = input("Enter f(x) (if its infinity try inf or -inf): ")
     if x == "inf":
         x = math.inf
     elif x == "-inf":
         x = -math.inf
     else:
         x = float(x)
+    formulas = [lambda x: ((x - 2) / (x ** 2 - 3 * x + 2)) ** 2,
+                lambda x: (x * 3 + x * 4 - 1) / (2 * (x ** 5) + x - x ** 2),
+                lambda x: ((x - 2) ** (1 / 2) - x ** (1 / 2)),
+                lambda x: ((7 * x + 10) / (1 + 7 * x)) ** (x / 3),
+                lambda x: (math.sin(x)) / (x ** 3),
+                lambda x: math.log((x - 1) / (x + 1), math.e),
+                lambda x: (math.sin(x)) / (math.e ** x - 1)]
 
-    if answer == '1':
-        first = lambda x: (x - 2) / \
-                          (x ** 2 - 3 * x + 2)
-        print(first(x))
-    elif answer == '2':
-        second = lambda x: (x * 3 + x * 4 - 1) / \
-                           (2 * x ** 5 + x - x ** 2)
-        print(second(x))
-    elif answer == '3':
-        third = lambda x: (math.sqrt(x - 2) - math.sqrt(x))
-        print(third(x))
-
-    elif answer == '4':
-        fourth = lambda x: ((7 * x - 10) /
-                            (1 + 7 * x)) ** x / 3
-        print(fourth(x))
-
-    elif answer == '5':
-        fifth = lambda x: math.sin(x) / x ** 3
-        print(fifth(x))
-    elif answer == '6':
-        sixth = lambda x: math.log(x - 1 /
-                                   x + 1)
-        print(sixth(x))
-    elif answer == '7':
-        seventh = lambda x: (math.sin(x)) / (math.e ** x - 1)
-        print(seventh(x))
+    calculation = formulas[answer - 1]
+    print("Limit is: " + str(round(calculation_limit(x, calculation), 1)))
 
 
-def calc_lim(form):
-    pass
+def calculation_limit(x, calculation):
+    limit_is = 0
+    if x == 2:
+        limit_is = calculation(0.000000000000000001)
+        return limit_is
+    elif x == -math.inf:
+        try:
+            list_of_arguments = [-1 * 10 ** i for i in range(14)]
+            for id, i in enumerate(list_of_arguments):
+                limit_is = calculation(list_of_arguments[id])
+            return limit_is
+        except ZeroDivisionError:
+            list_of_arguments = [-1.1 * 10 ** i for i in range(14)]
+            for id, i in enumerate(list_of_arguments):
+                limit_is = calculation(list_of_arguments[id])
+            return limit_is
+    elif x == math.inf:
+        list_of_arguments = [1 * 10 ** i for i in range(14)]
+        for id, i in enumerate(list_of_arguments):
+            limit_is = calculation(list_of_arguments[id])
+        return limit_is
+    else:
+        list_of_arguments = [0 + 1 * 10 ** -i for i in range(14)]
+        for id, i in enumerate(list_of_arguments):
+            limit_is = calculation(list_of_arguments[id])
+        return limit_is
 
 
 if __name__ == '__main__':
