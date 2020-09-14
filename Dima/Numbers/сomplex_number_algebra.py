@@ -19,11 +19,6 @@ class Complex:
         if isinstance(other, Complex):
             new_re = self.real * other.real - self.imaginary * other.imaginary
             new_im = self.real * other.imaginary + self.imaginary * other.real
-        elif isinstance(other, int) or isinstance(other, float):
-            new_re = self.real * other
-            new_im = self.imaginary * other
-        else:
-            raise ComplexError(self, other)
         return Complex(new_re, new_im)
 
     __rmul__ = __mul__
@@ -41,16 +36,55 @@ class Complex:
                        self.imaginary / (self.real ** 2 + self.imaginary ** 2))
 
 
+def operations_error(operation):
+    if operation == 'end':
+        pass
+    else:
+        print('Try again with available operations or enter <<end>> if you want to exit program')
+        complex_num_operations()
+
+
+def complex_num_operations():
+    operation = str(input('Available operation with complex numbers: \n'
+                          ' (add, mul, div, neg, inv) \n Enter operation: '))
+    if operation == 'add':
+        complex_number_1 = Complex(float(input('Enter real part of first complex number: ')),
+                                   float(input('Enter imaginary part of first complex number: ')))
+        complex_number_2 = Complex(float(input('Enter real part of second complex number: ')),
+                                   float(input('Enter imaginary part of second complex number: ')))
+        print('Add 2 complex number: ', Complex(complex_number_1 + complex_number_2))
+
+    elif operation == 'mul':
+        complex_number_1 = Complex(float(input('Enter real part of first complex number: ')),
+                                   float(input('Enter imaginary part of first complex number: ')))
+        complex_number_2 = Complex(float(input('Enter real part of second complex number: ')),
+                                   float(input('Enter imaginary part of second complex number: ')))
+        print('Multiplication of 2 complex number: ', Complex(complex_number_1 * complex_number_2))
+
+    elif operation == 'div':
+        complex_number_1 = Complex(float(input('Enter real part of first complex number: ')),
+                                   float(input('Enter imaginary part of first complex number: ')))
+        complex_number_2 = Complex(float(input('Enter real part of second complex number: ')),
+                                   float(input('Enter imaginary part of second complex number: ')))
+        print('Division of 2 complex number: ', Complex.div(complex_number_1, complex_number_2))
+
+    elif operation == 'neg':
+        complex_number = Complex(float(input('Enter real part of complex number: ')),
+                                 float(input('Enter imaginary part of complex number: ')))
+        print('Negation of complex number: ', Complex.neg(complex_number))
+
+    elif operation == 'inv':
+        complex_number = Complex(float(input('Enter real part of complex number: ')),
+                                 float(input('Enter imaginary part of complex number: ')))
+        print('Negation of complex number: ', Complex.inv(complex_number))
+    elif operation == 'end':
+        pass
+    else:
+        operations_error(operation)
+
+
 def main():
-    complex_number_1 = Complex(float(input('Enter real part of first complex number: ')),
-                               float(input('Enter imaginary part of first complex number: ')))
-    complex_number_2 = Complex(float(input('Enter real part of second complex number: ')),
-                               float(input('Enter imaginary part of first complex number: ')))
-    print('Add 2 complex number: ', Complex(complex_number_1 + complex_number_2))
-    print('Multiplication of 2 complex number: ', Complex(complex_number_1 * complex_number_2))
-    print('Division of 2 complex number: ', Complex.div(complex_number_1, complex_number_2))
-    print('Negation of complex number: ', Complex.neg(complex_number_1))
-    print('Inversion of complex number: ', Complex.inv(complex_number_1))
+    complex_num_operations()
 
 
 if __name__ == "__main__":
