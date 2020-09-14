@@ -3,7 +3,6 @@ import random
 import time
 from main import bubble_sort
 from main import merge_sort_iterative
-from main import check_input_data_format
 
 
 class SortingTest(unittest.TestCase):
