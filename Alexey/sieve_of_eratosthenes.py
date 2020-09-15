@@ -1,6 +1,6 @@
 def main():
     number = int(input("Enter number: "))
-    eratosthenes(number)
+    print(eratosthenes(number))
 
 
 def eratosthenes(number):
@@ -11,7 +11,7 @@ def eratosthenes(number):
         for elem in list_of_numbers:
             if elem % i == 0 and elem != i:
                 list_of_numbers.remove(elem)
-    print(list_of_numbers)
+    return list_of_numbers
 
 
 if __name__ == '__main__':
