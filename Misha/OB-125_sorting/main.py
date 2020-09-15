@@ -8,8 +8,15 @@ def bubble_sort(array_to_sort):
     array_size = len(arr)
     for index_1 in range(array_size - 1):
         for index_2 in range(array_size - 1 - index_1):
-            if arr[index_2] > arr[index_2 + 1]:
-                arr[index_2], arr[index_2 + 1] = arr[index_2 + 1], arr[index_2]
+            try:
+                value_check_type_error = arr[index_2 + 1] + 1
+                value_check_type_error = arr[index_2] + 1
+            except TypeError:
+                print('Error occured, given non-float value')
+                return 'Error'
+            else:
+                if arr[index_2] > arr[index_2 + 1]:
+                    arr[index_2], arr[index_2 + 1] = arr[index_2 + 1], arr[index_2]
     return arr
 
 
@@ -30,15 +37,22 @@ def merge_sort_iterative(array_to_sort):
                 right_index = array_size
             i1 = left_index  # index of first comparsion element
             i2 = middle_index  # index of second comparsion element
-            while i1 < middle_index and i2 < right_index:  #
-                if arr[i1] < arr[i2]:
-                    temp_arr[res_index] = arr[i1]
-                    res_index += 1
-                    i1 += 1
-                else:  # filling the result sequence array
-                    temp_arr[res_index] = arr[i2]
-                    res_index += 1
-                    i2 += 1
+            while i1 < middle_index and i2 < right_index:
+                try:
+                    value_check_type_error = arr[i1] + 1
+                    value_check_type_error = arr[i2] + 1
+                except TypeError:
+                    print('Error occured, given non-float value')
+                    return 'Error'
+                else:
+                    if arr[i1] < arr[i2]:
+                        temp_arr[res_index] = arr[i1]
+                        res_index += 1
+                        i1 += 1
+                    else:  # filling the result sequence array
+                        temp_arr[res_index] = arr[i2]
+                        res_index += 1
+                        i2 += 1
             # after the previous "while" we are filling the rest of sorting sequence array
             while i1 < middle_index:
                 temp_arr[res_index] = arr[i1]
@@ -58,7 +72,10 @@ def merge_sort_iterative(array_to_sort):
 
 
 def check_input_data_format(value):
-    if not re.fullmatch(r'[1-9]{1,}\d{0,}', value):
+    if value is not None:
+        if not re.fullmatch(r'[1-9]{1,}\d{0,}', value):
+            return 'Invalid data format'
+    else:
         return 'Invalid data format'
 
 
