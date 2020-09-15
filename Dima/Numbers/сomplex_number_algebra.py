@@ -37,11 +37,11 @@ class Complex:
 
 
 def operations_error(operation):
-    if operation == 'end':
-        pass
-    else:
+    if operation != 'end':
         print('Try again with available operations or enter <<end>> if you want to exit program')
         complex_num_operations()
+    else:
+        print('Complete')
 
 
 def complex_num_operations():
@@ -77,9 +77,7 @@ def complex_num_operations():
         complex_number = Complex(float(input('Enter real part of complex number: ')),
                                  float(input('Enter imaginary part of complex number: ')))
         print('Negation of complex number: ', Complex.inv(complex_number))
-    elif operation == 'end':
-        pass
-    else:
+    elif operation != 'end':
         operations_error(operation)
 
 
