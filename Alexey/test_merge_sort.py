@@ -1,4 +1,4 @@
-from bubble_sort import sort
+from merge_sort import sort
 import unittest
 import random
 
