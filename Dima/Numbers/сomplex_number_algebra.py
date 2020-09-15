@@ -43,6 +43,7 @@ def operations_error(operation):
     else:
         print('Complete')
 
+
 def complex_num_operations():
     operation = str(input('Available operation with complex numbers: \n'
                           ' (add, mul, div, neg, inv) \n Enter operation: '))
