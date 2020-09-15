@@ -44,6 +44,22 @@ class InputTest(unittest.TestCase):
         self.assertTrue(test_pass == True)
         self.assertFalse(test_pass == False)
 
+    def test_input_6(self):
+        if check_input_data_format('') == 'Invalid data format':
+            test_pass = True
+        else:
+            test_pass = False
+        self.assertTrue(test_pass == True)
+        self.assertFalse(test_pass == False)
+
+    def test_input_7(self):
+        if check_input_data_format(None) == 'Invalid data format':
+            test_pass = True
+        else:
+            test_pass = False
+        self.assertTrue(test_pass == True)
+        self.assertFalse(test_pass == False)
+
 
 if __name__ == '__main__':
     unittest.main()
