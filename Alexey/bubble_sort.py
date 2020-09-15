@@ -5,10 +5,10 @@ def main():
 
 
 def sort(array):
-    for i in array:
-        for id_y, y in enumerate(array):
-            if array[id_y] > array[id_y + 1]:
-                array[id_y], array[id_y + 1] = array[id_y + 1], array[id_y]
+    for i in range(len(array)-1, 0, -1):
+        for y in range(i):
+            if array[y] > array[y + 1]:
+                array[y], array[y + 1] = array[y + 1], array[y]
     return array
 
 
