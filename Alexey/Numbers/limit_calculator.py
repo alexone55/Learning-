@@ -1,5 +1,4 @@
 import math
-import cmath
 
 
 def main():
@@ -11,7 +10,7 @@ def main():
         x = -math.inf
     else:
         x = float(x)
-    formulas = [lambda x: ((x - 2) / (x ** 2 - 3 * x + 2)) ** 2,
+    formulas = [lambda x: ((x - 2) / ((x ** 2) - (3 * x + 2))) ** 2,
                 lambda x: (x * 3 + x * 4 - 1) / (2 * (x ** 5) + x - x ** 2),
                 lambda x: ((x - 2) ** (1 / 2) - x ** (1 / 2)),
                 lambda x: ((7 * x + 10) / (1 + 7 * x)) ** (x / 3),
@@ -25,7 +24,7 @@ def main():
 
 def calculation_limit(x, calculation):
     limit_is = 0
-    if x == 2:
+    if x == 2 or calculation == 0:
         limit_is = calculation(0.000000000000000001)
         return limit_is
     elif x == -math.inf:
