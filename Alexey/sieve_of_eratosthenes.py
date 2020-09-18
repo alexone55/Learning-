@@ -1,5 +1,8 @@
 def main():
-    number = int(input("Enter number: "))
+    try:
+        number = int(input("Enter number: "))
+    except ValueError:
+        number = 0
     print(eratosthenes(number))
 
 

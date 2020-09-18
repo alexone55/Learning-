@@ -1,5 +1,5 @@
 def main():
-    array = [2, 4, 1, 5, 7, 3, 8, 9]
+    array = []
     print(*array)
     print(sort(array))
 
