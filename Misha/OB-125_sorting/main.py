@@ -9,14 +9,10 @@ def bubble_sort(array_to_sort):
     for index_1 in range(array_size - 1):
         for index_2 in range(array_size - 1 - index_1):
             try:
-                value_check_type_error = arr[index_2 + 1] + 1
-                value_check_type_error = arr[index_2] + 1
-            except TypeError:
-                print('Error occured, given non-float value')
-                return 'Error'
-            else:
                 if arr[index_2] > arr[index_2 + 1]:
                     arr[index_2], arr[index_2 + 1] = arr[index_2 + 1], arr[index_2]
+            except TypeError:
+                raise TypeError('TypeError')
     return arr
 
 
@@ -39,12 +35,6 @@ def merge_sort_iterative(array_to_sort):
             i2 = middle_index  # index of second comparsion element
             while i1 < middle_index and i2 < right_index:
                 try:
-                    value_check_type_error = arr[i1] + 1
-                    value_check_type_error = arr[i2] + 1
-                except TypeError:
-                    print('Error occured, given non-float value')
-                    return 'Error'
-                else:
                     if arr[i1] < arr[i2]:
                         temp_arr[res_index] = arr[i1]
                         res_index += 1
@@ -53,6 +43,8 @@ def merge_sort_iterative(array_to_sort):
                         temp_arr[res_index] = arr[i2]
                         res_index += 1
                         i2 += 1
+                except TypeError:
+                    raise TypeError('TypeError')
             # after the previous "while" we are filling the rest of sorting sequence array
             while i1 < middle_index:
                 temp_arr[res_index] = arr[i1]
@@ -72,37 +64,36 @@ def merge_sort_iterative(array_to_sort):
 
 
 def check_input_data_format(value):
-    if value is not None:
-        if not re.fullmatch(r'[1-9]{1,}\d{0,}', value):
-            return 'Invalid data format'
+    if value is None or not re.fullmatch(r'[1-9]{1,}\d{0,}', value) or re.fullmatch(r'[1]', value):
+        raise TypeError('Invalid data format')
     else:
-        return 'Invalid data format'
+        pass
 
 
 def main():
     random.seed = time.time()
     array_size = input('Enter the int number to set the array size: ')
-    if check_input_data_format(str(array_size)) != 'Invalid data format':
-        array_size = int(array_size)
-        arr_to_sort = [0] * array_size
-        for index in range(array_size):
-            arr_to_sort[index] = random.randint(1, array_size)
+    check_input_data_format(str(array_size))
+    array_size = int(array_size)
+    arr_to_sort = [0] * array_size
+    for index in range(array_size):
+        arr_to_sort[index] = random.randint(1, array_size)
 
-        print('Array:\n', arr_to_sort)
-        start = time.time()
-        sorted_array = bubble_sort(arr_to_sort)
-        end = time.time()
-        print('Sorted Array:\n', sorted_array)
-        sort_time = end - start
-        print('Sort time (bubble sort): ', sort_time)  # on small values of array size (10 for example) time reach 0
+    print('Array:\n', arr_to_sort)
+    start = time.time()
+    sorted_array = bubble_sort(arr_to_sort)
+    end = time.time()
+    print('Sorted Array:\n', sorted_array)
+    sort_time = end - start
+    print('Sort time (bubble sort): ', sort_time)  # on small values of array size (10 for example) time reach 0
 
-        print('Array:\n', arr_to_sort)
-        start = time.time()
-        sorted_array = merge_sort_iterative(arr_to_sort)
-        end = time.time()
-        print('Sorted Array:\n', sorted_array)
-        sort_time = end - start
-        print('Sort time (iterative merge sort): ', sort_time)
+    print('Array:\n', arr_to_sort)
+    start = time.time()
+    sorted_array = merge_sort_iterative(arr_to_sort)
+    end = time.time()
+    print('Sorted Array:\n', sorted_array)
+    sort_time = end - start
+    print('Sort time (iterative merge sort): ', sort_time)
 
 
 if __name__ == "__main__":
