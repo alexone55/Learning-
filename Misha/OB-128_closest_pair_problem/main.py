@@ -16,8 +16,11 @@ def create_route_matrix(dot_list):
 
 
 def check_input_data_format(value):
-    if not re.fullmatch(r'[1-9]{1,}\d{0,}', value) or re.fullmatch(r'[1]', value) or value is None:
-        return 'Invalid data format'
+    value = (str(value))
+    if not re.fullmatch(r'[1-9]{1,}\d{0,}', value) or re.fullmatch(r'[1]', value):
+        raise TypeError('Invalid data format')
+    else:
+        pass
 
 
 def generate_dot_list(amount_of_dots):
