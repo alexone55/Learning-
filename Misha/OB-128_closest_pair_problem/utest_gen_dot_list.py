@@ -12,20 +12,20 @@ class GeneratingDotsTest(unittest.TestCase):
     def test_generate_dot_list_with_wrong_input_as_string_parameter(self):
         with self.assertRaises(TypeError) as context:
             self.assertRaises(TypeError, generate_dot_list('5'))
-        the_exception = str(context.exception)
-        self.assertEqual('TypeError', the_exception)
+        exception_message = str(context.exception)
+        self.assertEqual('TypeError', exception_message)
 
     def test_generate_dot_list_with_wrong_input_as_non_type_parameter(self):
         with self.assertRaises(TypeError) as context:
             self.assertRaises(TypeError, generate_dot_list(None))
-        the_exception = str(context.exception)
-        self.assertEqual('TypeError', the_exception)
+        exception_message = str(context.exception)
+        self.assertEqual('TypeError', exception_message)
 
     def test_generate_dot_list_with_wrong_input_as_list_parameter(self):
         with self.assertRaises(TypeError) as context:
             self.assertRaises(TypeError, generate_dot_list([1, 2, 3]))
-        the_exception = str(context.exception)
-        self.assertEqual('TypeError', the_exception)
+        exception_message = str(context.exception)
+        self.assertEqual('TypeError', exception_message)
 
 
 if __name__ == '__main__':
