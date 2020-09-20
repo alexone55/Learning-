@@ -38,22 +38,22 @@ class BubbleSortingTest(unittest.TestCase):
         arr_to_sort = [1, 5, ' ', 235, 2, 51, 5, 1, 25, 2]
         with self.assertRaises(TypeError) as context:
             self.assertRaises(TypeError, bubble_sort(arr_to_sort))
-        the_exception = str(context.exception)
-        self.assertEqual('TypeError', the_exception)
+        exception_message = str(context.exception)
+        self.assertEqual('TypeError', exception_message)
 
     def test_bubble_with_wrong_non_type_object_in_array(self):
         arr_to_sort = [1, 5, None, 235, 2, 51, 5, 1, 25, 2]
         with self.assertRaises(TypeError) as context:
             self.assertRaises(TypeError, bubble_sort(arr_to_sort))
-        the_exception = str(context.exception)
-        self.assertEqual('TypeError', the_exception)
+        exception_message = str(context.exception)
+        self.assertEqual('TypeError', exception_message)
 
     def test_bubble_with_array_of_none_type_objects(self):
         arr_to_sort = [None, None, None, None, None]
         with self.assertRaises(TypeError) as context:
             self.assertRaises(TypeError, bubble_sort(arr_to_sort))
-        the_exception = str(context.exception)
-        self.assertEqual('TypeError', the_exception)
+        exception_message = str(context.exception)
+        self.assertEqual('TypeError', exception_message)
 
 
 if __name__ == '__main__':
