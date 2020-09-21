@@ -5,32 +5,34 @@ def main():
 
 
 def sort(sorted):
-    if len(sorted) > 1:
-        middle = len(sorted) // 2
-        left_side = sorted[:middle]
-        right_side = sorted[middle:]
-        left_side = sort(left_side)
-        right_side = sort(right_side)
+    try:
+        if len(sorted) > 1:
+            middle = len(sorted) // 2
+            left_side = sorted[:middle]
+            right_side = sorted[middle:]
+            left_side = sort(left_side)
+            right_side = sort(right_side)
 
-        sorted = []
+            sorted = []
 
-        while len(left_side) > 0 \
-                and len(right_side) > 0:
+            while len(left_side) > 0 \
+                    and len(right_side) > 0:
 
-            if left_side[0] < right_side[0]:
-                sorted.append(left_side[0])
-                left_side.pop(0)
-            else:
-                sorted.append(right_side[0])
-                right_side.pop(0)
+                if left_side[0] < right_side[0]:
+                    sorted.append(left_side[0])
+                    left_side.pop(0)
+                else:
+                    sorted.append(right_side[0])
+                    right_side.pop(0)
 
-        for i in left_side:
-            sorted.append(i)
+            for i in left_side:
+                sorted.append(i)
 
-        for i in right_side:
-            sorted.append(i)
-    return sorted
-
+            for i in right_side:
+                sorted.append(i)
+        return sorted
+    except TypeError:
+        return []
 
 if __name__ == '__main__':
     main()
