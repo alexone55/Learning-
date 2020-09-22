@@ -1,3 +1,7 @@
+from Alexey.OB_366.sieve_of_eratostenes.time_decorator import timer
+
+
+@timer
 def main():
     try:
         number = int(input("Enter number: "))
