@@ -1,3 +1,7 @@
+from Alexey.OB_125.sorting.time_decorator import timer
+
+
+@timer
 def main():
     array = []
     print(*array)

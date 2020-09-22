@@ -1,3 +1,4 @@
+from Alexey.OB_125.sorting.time_decorator import timer
 from Alexey.OB_125.sorting.bubble_sort import sort
 import unittest
 

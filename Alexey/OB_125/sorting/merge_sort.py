@@ -1,3 +1,7 @@
+from Alexey.OB_125.sorting.time_decorator import timer
+
+
+@timer
 def main():
     array = [2, 4, 1, 5, 7, 3, 8, 9]
     print(*array)
@@ -33,6 +37,7 @@ def sort(sorted):
         return sorted
     except TypeError:
         return []
+
 
 if __name__ == '__main__':
     main()
