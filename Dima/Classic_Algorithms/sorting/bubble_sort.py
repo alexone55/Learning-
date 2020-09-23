@@ -1,4 +1,4 @@
-from Dima.Numbers.time_decorator import timer
+from Dima.Decorators.time_decorator import timer
 import random
 
 
@@ -11,6 +11,7 @@ def bubble_sort(our_list):
         return our_list
     except TypeError:
         return []
+
 
 @timer
 def main():

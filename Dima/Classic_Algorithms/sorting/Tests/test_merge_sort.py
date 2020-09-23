@@ -1,10 +1,11 @@
 import unittest
 from Dima.Classic_Algorithms.sorting.merge_sort import merge_sort
+from Dima.Classic_Algorithms.sorting.merge_sort import merge
 
 
 class MergeSortTest(unittest.TestCase):
 
-    def test_when_input_is_None(self):
+    def test_when_input_is_None_return_empty_list(self):
         sorted_list = merge_sort(None)
         expected_results = []
         self.assertEqual(sorted_list, expected_results)
@@ -28,3 +29,26 @@ class MergeSortTest(unittest.TestCase):
         sorted_list = merge_sort([0, 1, 3, 2, 5, 4])
         expected_results = [0, 1, 2, 3, 4, 5]
         self.assertEqual(sorted_list, expected_results)
+
+    def test_when_input_repeated_values(self):
+        sorted_list = merge_sort([1, 3, 0, 1, 3, 2, 5, 4, 3])
+        expected_results = [0, 1, 1, 2, 3, 3, 3, 4, 5]
+        self.assertEqual(sorted_list, expected_results)
+
+
+class MergeFunctionTest(unittest.TestCase):
+
+    def test_when_input_is_null(self):
+        merged = merge([0], [0], [0, 0])
+        expected_results = [0, 0]
+        self.assertEqual(merged, expected_results)
+
+    def test_when_input_normal(self):
+        merged = merge([0, 1, 3], [2, 5, 4], [0, 1, 3, 2, 5, 4])
+        expected_results = [0, 1, 2, 3, 5, 4]
+        self.assertEqual(merged, expected_results)
+
+    def test_when_input_str_value(self):
+        merged = merge(['erwerwe', '4dsfsdf'], ['asdfee'], ['erwerwe', 'asdfee', '4dsfsdf'])
+        expected_results = ['asdfee', 'erwerwe', '4dsfsdf']
+        self.assertEqual(merged, expected_results)
