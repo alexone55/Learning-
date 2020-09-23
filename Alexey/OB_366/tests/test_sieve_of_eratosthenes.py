@@ -26,7 +26,8 @@ class TestSort(unittest.TestCase):
         actual_list = eratosthenes(200)
         self.assertEqual(expect_set, actual_list)
 
-    def test_send_none_and_expect_return_empty_list(self):
-        expect_set = []
-        actual_list = eratosthenes(None)
-        self.assertEqual(expect_set, actual_list)
+    def test_send_none_and_expect_return_exception_typeerror(self):
+        with self.assertRaises(TypeError) as context:
+            self.assertRaises(TypeError, eratosthenes(None))
+        exception_message = str(context.exception)
+        self.assertEqual('TypeError', exception_message)

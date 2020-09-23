@@ -22,7 +22,7 @@ def eratosthenes(number):
         return list_of_numbers
 
     except TypeError:
-        return list_of_numbers
+        raise TypeError('TypeError')
 
 
 if __name__ == '__main__':
