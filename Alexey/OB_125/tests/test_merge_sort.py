@@ -1,4 +1,4 @@
-from Alexey.OB_125.sorting.merge_sort import sort
+from Alexey.OB_125.sorting.bubble_sort import sort
 import unittest
 
 
@@ -25,6 +25,7 @@ class TestSort(unittest.TestCase):
         self.assertEqual(expect_set, actual_set)
 
     def test_send_none_and_expect_empty_list(self):
-        expect_set = []
-        actual_set = sort(None)
-        self.assertEqual(expect_set, actual_set)
+        with self.assertRaises(TypeError) as context:
+            self.assertRaises(TypeError, sort(None))
+        exception_message = str(context.exception)
+        self.assertEqual('TypeError', exception_message)

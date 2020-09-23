@@ -36,7 +36,7 @@ def sort(sorted):
                 sorted.append(i)
         return sorted
     except TypeError:
-        return []
+        raise TypeError('TypeError')
 
 
 if __name__ == '__main__':

@@ -16,7 +16,7 @@ def sort(array):
                     array[y], array[y + 1] = array[y + 1], array[y]
         return array
     except TypeError:
-        return []
+        raise TypeError('TypeError')
 
 
 if __name__ == '__main__':
