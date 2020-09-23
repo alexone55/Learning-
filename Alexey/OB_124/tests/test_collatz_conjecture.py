@@ -51,6 +51,7 @@ class TestCollatzConjecture(unittest.TestCase):
         self.assertEqual(expect_set, actual_set)
 
     def test_send_none_and_result_is_empty_list(self):
-        expect_set = []
-        actual_set = conjecture(None)
-        self.assertEqual(expect_set, actual_set)
+        with self.assertRaises(TypeError) as context:
+            self.assertRaises(TypeError, conjecture(None))
+        exception_message = str(context.exception)
+        self.assertEqual('TypeError', exception_message)

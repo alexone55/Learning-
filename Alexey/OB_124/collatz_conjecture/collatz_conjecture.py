@@ -26,7 +26,7 @@ def conjecture(num):
         return conjecture_list
 
     except TypeError:
-        return conjecture_list
+        raise TypeError('TypeError')
 
 
 if __name__ == '__main__':
