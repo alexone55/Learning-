@@ -5,28 +5,28 @@ import unittest
 
 class TestSort(unittest.TestCase):
 
-    def test_normal_sort(self):
+    def test_send_numbers_and_return_expect_set(self):
         expect_set = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-        self.assertEqual(sort([2, 1, 5, 4, 3, 6, 7, 8, 10, 9]),
-                         expect_set)
+        actual_set = sort([2, 1, 5, 4, 3, 6, 7, 8, 10, 9])
+        self.assertEqual(expect_set, actual_set)
 
-    def test_liters_sort(self):
+    def test_send_liters_and_return_expect_set(self):
         expect_set = ["a", "b", "c"]
-        self.assertEqual(sort(["a", "c", "b"]),
-                         expect_set)
+        actual_set = sort(["a", "c", "b"])
+        self.assertEqual(expect_set, actual_set)
 
-    def test_send_nothing(self):
+    def test_send_empty_list_and_return_empty_list(self):
         expect_set = []
-        self.assertEqual(sort([]),
-                         expect_set)
+        actual_set = sort([])
+        self.assertEqual(expect_set, actual_set)
 
-    def test_send_one_num(self):
+    def test_send_one_number_in_lit_and_return_one_number_in_list(self):
         expect_set = [1]
-        self.assertEqual(sort([1]),
-                         expect_set)
+        actual_set = sort([1])
+        self.assertEqual(expect_set, actual_set)
 
-    def test_send_none(self):
+    def test_send_none_and_expect_empty_list(self):
         expect_set = []
-        self.assertEqual(sort(None),
-                         expect_set)
+        actual_set = sort(None)
+        self.assertEqual(expect_set, actual_set)
 

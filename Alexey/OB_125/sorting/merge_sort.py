@@ -1,13 +1,13 @@
 from Alexey.OB_125.sorting.time_decorator import timer
 
 
-@timer
 def main():
     array = [2, 4, 1, 5, 7, 3, 8, 9]
     print(*array)
     print(sort(array))
 
 
+@timer
 def sort(sorted):
     try:
         if len(sorted) > 1:

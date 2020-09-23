@@ -1,13 +1,13 @@
 from Alexey.OB_125.sorting.time_decorator import timer
 
 
-@timer
 def main():
     array = []
     print(*array)
     print(sort(array))
 
 
+@timer
 def sort(array):
     try:
         for i in range(len(array)-1, 0, -1):
