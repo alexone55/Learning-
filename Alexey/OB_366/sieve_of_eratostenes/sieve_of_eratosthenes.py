@@ -1,7 +1,6 @@
 from Alexey.OB_366.sieve_of_eratostenes.time_decorator import timer
 
 
-@timer
 def main():
     try:
         number = int(input("Enter number: "))
@@ -10,6 +9,7 @@ def main():
     print(eratosthenes(number))
 
 
+@timer
 def eratosthenes(number):
     list_of_numbers = []
     try:
@@ -23,8 +23,6 @@ def eratosthenes(number):
 
     except TypeError:
         return list_of_numbers
-
-
 
 
 if __name__ == '__main__':
