@@ -4,16 +4,17 @@ from Alexey.OB_124.collatz_conjecture.collatz_conjecture import conjecture
 
 class TestCollatzConjecture(unittest.TestCase):
 
-    def test_fifty(self):
+    def test_send_number_fifty_and_result_expect_set(self):
         expect_set = [25, 76, 38, 19, 58,
                       29, 88, 44, 22, 11,
                       34, 17, 52, 26, 13,
                       40, 20, 10, 5, 16,
                       8, 4, 2, 1
                       ]
-        self.assertEqual(conjecture(50), expect_set)
+        actual_set = conjecture(50)
+        self.assertEqual(expect_set, actual_set)
 
-    def test_two_hundred(self):
+    def test_send_number_two_hundred_and_result_expect_set(self):
         expect_set = [598, 299, 898, 449, 1348,
                       674, 337, 1012, 506, 253,
                       760, 380, 190, 95, 286,
@@ -36,16 +37,20 @@ class TestCollatzConjecture(unittest.TestCase):
                       488, 244, 122, 61, 184, 92, 46,
                       23, 70, 35, 106, 53, 160, 80,
                       40, 20, 10, 5, 16, 8, 4, 2, 1]
-        self.assertEqual(conjecture(199), expect_set)
+        actual_set = conjecture(199)
+        self.assertEqual(expect_set, actual_set)
 
-    def test_one(self):
+    def test_send_one_and_result_empty_list(self):
         expect_set = []
-        self.assertEqual(conjecture(1), expect_set)
+        actual_set = conjecture(1)
+        self.assertEqual(expect_set, actual_set)
 
-    def test_zero(self):
+    def test_send_zero_and_result_is_zero(self):
         expect_set = 0
-        self.assertEqual(conjecture(0), expect_set)
+        actual_set = conjecture(0)
+        self.assertEqual(expect_set, actual_set)
 
-    def test_send_none(self):
+    def test_send_none_and_result_is_empty_list(self):
         expect_set = []
-        self.assertEqual(conjecture(None), expect_set)
+        actual_set = conjecture(None)
+        self.assertEqual(expect_set, actual_set)

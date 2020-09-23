@@ -1,7 +1,6 @@
 from Alexey.OB_124.collatz_conjecture.time_decorator import timer
 
 
-@timer
 def main():
     try:
         num = int(input("Enter number: "))
@@ -10,6 +9,7 @@ def main():
     print(conjecture(num))
 
 
+@timer
 def conjecture(num):
     conjecture_list = []
     try:
