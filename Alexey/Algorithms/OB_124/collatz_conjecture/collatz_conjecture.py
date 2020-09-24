@@ -1,4 +1,4 @@
-from Alexey.OB_124.collatz_conjecture.time_decorator import timer
+from Alexey.Algorithms.OB_124.collatz_conjecture.time_decorator import timer
 
 
 def main():
