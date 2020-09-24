@@ -3,9 +3,9 @@ import re
 
 
 def show_time_of_function_processing(func):
-    def wrapper_with_arguments(arg1):
+    def wrapper_with_arguments(arg):
         start = time.time()
-        data = func(arg1)
+        data = func(arg)
         end = time.time()
         print('[*] Time used: {} seconds.'.format(end - start))
         return data
@@ -33,8 +33,6 @@ def collatz_conjecture(value):
 def check_input_data_format(value):
     if value is None or not re.fullmatch(r'[1-9]{1,}\d{0,}', value) or re.fullmatch(r'[1]', value):
         raise TypeError('Invalid data format')
-    else:
-        pass
 
 
 def main():
