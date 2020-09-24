@@ -1,5 +1,5 @@
 import unittest
-from Alexey.OB_366.sieve_of_eratostenes.sieve_of_eratosthenes import eratosthenes
+from Alexey.Algorythms.OB_366.sieve_of_eratostenes.sieve_of_eratosthenes import eratosthenes
 
 
 class TestSort(unittest.TestCase):

@@ -1,4 +1,4 @@
-from Alexey.OB_366.sieve_of_eratostenes.time_decorator import timer
+from Alexey.Algorythms.OB_366.sieve_of_eratostenes.time_decorator import timer
 
 
 def main():
