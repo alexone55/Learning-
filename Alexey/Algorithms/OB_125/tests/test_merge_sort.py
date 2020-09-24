@@ -1,4 +1,4 @@
-from Alexey.Algorythms.OB_125.sorting.bubble_sort import sort
+from Alexey.Algorithms.OB_125.sorting.bubble_sort import sort
 import unittest
 
 
