@@ -32,6 +32,11 @@ class CollatzConjectureTest(unittest.TestCase):
         expected_value = 16
         self.assertEqual(expected_value, iterations)
 
+    def test_cc_with_right_value_3(self):
+        iterations = collatz_conjecture('2')
+        expected_value = 1
+        self.assertEqual(expected_value, iterations)
+
     def test_cc_with_empty_string(self):
         with self.assertRaises(TypeError) as context:
             self.assertRaises(TypeError, collatz_conjecture(''))
