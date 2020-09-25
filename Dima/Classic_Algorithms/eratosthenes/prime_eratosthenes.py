@@ -6,25 +6,24 @@ from Dima.Decorators.time_decorator import timer
 def sieve_of_eratosthenes(number):
     primes = []
     try:
-        for i in range(2, number + 1):
-            primes.append(i)
-        i = 2
-        while i <= int(math.sqrt(number)):
-            if i in primes:
-                for j in range(i * 2, number + 1, i):
-                    if j in primes:
-                        primes.remove(j)
-            i = i + 1
+        for current_number in range(2, number + 1):
+            primes.append(current_number)
+        current_number = 2
+        while current_number <= int(math.sqrt(number)):
+            if current_number in primes:
+                for repeated_number in range(current_number * 2, number + 1, current_number):
+                    if repeated_number in primes:
+                        primes.remove(repeated_number)
+            current_number = current_number + 1
         return primes
     except TypeError:
-        return []
+        raise TypeError('TypeError')
 
 
 def main():
-    number = int(input('Enter Number: '))
+    number = input('Enter Number: ')
     print(sieve_of_eratosthenes(number))
 
 
 if __name__ == "__main__":
     main()
-
