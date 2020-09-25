@@ -6,6 +6,10 @@ from Dima.Decorators.time_decorator import timer
 def sieve_of_eratosthenes(number):
     primes = []
     try:
+        number = int(number)
+    except ValueError:
+        raise ValueError('ValueError')
+    try:
         for current_number in range(2, number + 1):
             primes.append(current_number)
         current_number = 2

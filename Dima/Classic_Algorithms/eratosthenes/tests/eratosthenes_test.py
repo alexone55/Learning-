@@ -36,7 +36,7 @@ class EratSieveTest(unittest.TestCase):
         self.assertRaises(TypeError, sieve_of_eratosthenes, None)
 
     def test_erat_sieve_with_string_object(self):
-        self.assertRaises(TypeError, sieve_of_eratosthenes, 'asdfd')
+        self.assertRaises(ValueError, sieve_of_eratosthenes, 'asdfd')
 
     def test_erat_sieve_with_list_object(self):
         self.assertRaises(TypeError, sieve_of_eratosthenes, [1, 6, 4])
