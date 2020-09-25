@@ -47,3 +47,7 @@ class MergeSortTest(unittest.TestCase):
         merged = merge(['erwerwe', '4dsfsdf'], ['asdfee'], ['erwerwe', 'asdfee', '4dsfsdf'])
         expected_results = ['asdfee', 'erwerwe', '4dsfsdf']
         self.assertEqual(merged, expected_results)
+
+
+if __name__ == '__main__':
+    unittest.main()
