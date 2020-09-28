@@ -2,7 +2,7 @@ import unittest
 from Alexey.Text.check_if_palindrome.main.check_if_palindrome import check_if_palindrome
 
 
-class GeneratingDotsTest(unittest.TestCase):
+class TestCheckIfPalindrom(unittest.TestCase):
     def test_send_sentence_and_expect_palindrome_message(self):
         expect_set = "Congrats your sentence is palindrome!"
         actual_set = check_if_palindrome('Racecar')
