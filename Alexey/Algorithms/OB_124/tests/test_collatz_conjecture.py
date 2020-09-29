@@ -1,5 +1,5 @@
 import unittest
-from Alexey.OB_124.collatz_conjecture.collatz_conjecture import conjecture
+from Alexey.Algorithms.OB_124.collatz_conjecture.collatz_conjecture import conjecture
 
 
 class TestCollatzConjecture(unittest.TestCase):
