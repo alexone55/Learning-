@@ -1,23 +1,24 @@
 def main():
     numbers = int(input())
-    fizzbuzz_cicle(numbers)
+    print(fizzbuzz_cycle(numbers))
 
 
 def fizzbuzz_cycle(numbers):
-
+    fizz_buzz_numbers = []
     for number in range(1, numbers + 1):
-        fizzbuzz_printer(number)
+        fizz_buzz_numbers.append(fizzbuzz_printer(number))
+    return fizz_buzz_numbers
 
 
 def fizzbuzz_printer(number):
     if number % 3 == 0 and number % 5 == 0:
-        print('FizzBuzz')
+        return 'FizzBuzz'
     elif number % 3 == 0:
-        print('Fizz')
+        return 'Fizz'
     elif number % 5 == 0:
-        print('Buzz')
+        return 'Buzz'
     else:
-        print(number)
+        return number
 
 
 if __name__ == '__main__':
