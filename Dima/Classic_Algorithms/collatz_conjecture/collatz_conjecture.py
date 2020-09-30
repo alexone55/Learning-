@@ -4,10 +4,6 @@ from Dima.Decorators.time_decorator import timer
 @timer
 def collatz_conjecture(number):
     try:
-        number = int(number)
-    except ValueError:
-        ValueError('ValueError')
-    try:
         step = int(0)
         if number < 1:
             return []
