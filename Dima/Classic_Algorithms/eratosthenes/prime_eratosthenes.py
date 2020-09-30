@@ -6,10 +6,6 @@ from Dima.Decorators.time_decorator import timer
 def sieve_of_eratosthenes(number):
     primes = []
     try:
-        number = int(number)
-    except ValueError:
-        raise TypeError('TypeError, maybe number isn`t integer')
-    try:
         for current_number in range(2, number + 1):
             primes.append(current_number)
         current_number = 2
@@ -24,8 +20,16 @@ def sieve_of_eratosthenes(number):
         raise ValueError('ValueError, maybe number is negative ')
 
 
+def input_eratosthenes():
+    number = input('Enter your number: ')
+    try:
+        return int(number)
+    except ValueError:
+        raise TypeError('TypeError, maybe number isn`t integer')
+
+
 def main():
-    number = input('Enter Number: ')
+    number = input_eratosthenes()
     print(sieve_of_eratosthenes(number))
 
 
