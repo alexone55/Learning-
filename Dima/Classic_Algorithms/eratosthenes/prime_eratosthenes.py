@@ -8,7 +8,7 @@ def sieve_of_eratosthenes(number):
     try:
         number = int(number)
     except ValueError:
-        raise ValueError('ValueError')
+        raise TypeError('TypeError, maybe number isn`t integer')
     try:
         for current_number in range(2, number + 1):
             primes.append(current_number)
@@ -20,8 +20,8 @@ def sieve_of_eratosthenes(number):
                         primes.remove(repeated_number)
             current_number = current_number + 1
         return primes
-    except TypeError:
-        raise TypeError('TypeError')
+    except ValueError:
+        raise ValueError('ValueError, maybe number is negative ')
 
 
 def main():
