@@ -18,7 +18,7 @@ def fizzbuzz_printer(number):
     elif number % 5 == 0:
         return 'Buzz'
     else:
-        return number
+        return str(number)
 
 
 if __name__ == '__main__':
