@@ -4,7 +4,7 @@ from Dima.text.count_words_in_a_string.count_of_words import count_of_words_str
 from Dima.text.count_words_in_a_string.count_of_words import count_of_words_text
 
 
-class StringReverserTest(unittest.TestCase):
+class CountWordsTest(unittest.TestCase):
 
     def test_count_words_with_none_value(self):
         with self.assertRaises(TypeError) as context:
