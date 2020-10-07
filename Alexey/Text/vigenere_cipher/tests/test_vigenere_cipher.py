@@ -8,6 +8,11 @@ class TestVigenereCipher(unittest.TestCase):
         actual_set = generate_key('bigbrother', 'SEA')
         self.assertEqual(expect_set, actual_set)
 
+    def test_send_word_and_key_same_length_and_expect_generated_key(self):
+        expect_set = ['B', 'I', 'G', 'S', 'I', 'S', 'T', 'E', 'R', 'S']
+        actual_set = generate_key('bigbrother', 'BIGSISTERS')
+        self.assertEqual(expect_set, actual_set)
+
     def test_send_word_and_key_and_expect_crypted_word(self):
         expect_set = 'TMGTVOLLEJ'
         actual_set = cipher_text_func('BIGBROTHER', 'SEASEASEAS')
