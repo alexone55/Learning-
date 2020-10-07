@@ -2,7 +2,7 @@ import unittest
 from fizz_buzz_main import fizz_buzz
 
 
-class StringReverserTest(unittest.TestCase):
+class FizzBuzzTest(unittest.TestCase):
 
     def test_fizz_buzz_with_none_value(self):
         with self.assertRaises(TypeError) as context:
@@ -39,7 +39,7 @@ class StringReverserTest(unittest.TestCase):
 
     def test_fizz_buzz_with_int_2(self):
         answer = fizz_buzz(2)
-        expected_value = 2
+        expected_value = 'Number'
         self.assertEqual(expected_value, answer)
 
 

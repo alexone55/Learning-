@@ -9,13 +9,17 @@ def fizz_buzz(number):
         elif number % 5 == 0 and number % 3 == 0:
             return 'FizzBuzz'
         else:
-            return number
+            return 'Number'
 
 
 def print_numbers():
     last_number = 100
     for number in range(last_number):
-        print(fizz_buzz(number+1),end=' ')
+        answer = fizz_buzz(number+1)
+        if answer == 'Number':
+            print(number+1,end=' ')
+        else:
+            print(answer,end=' ')
 
 
 def main():
