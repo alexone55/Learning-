@@ -1,16 +1,16 @@
 def check_if_palindrome(palindrome):
     try:
-        palindrome = palindrome.replace(" ", "")
+        palindrome = palindrome.strip().replace(" ", "")
         if palindrome == palindrome[::-1]:
-            return 'Yes'
+            return True
         else:
-            return 'No'
+            return False
     except AttributeError:
         raise AttributeError('Input isn`t string type')
 
 
 def main():
-    palindrome = 'abc cba'
+    palindrome = 'abc c ba'
     print(check_if_palindrome(palindrome))
 
 

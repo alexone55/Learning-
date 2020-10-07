@@ -6,12 +6,17 @@ class TestCheckPalindrome(unittest.TestCase):
 
     def test_when_check_if_palindrome_input_palindrome(self):
         palindrome = check_if_palindrome('abccba')
-        expected_result = 'Yes'
+        expected_result = True
+        self.assertEqual(palindrome, expected_result)
+
+    def test_when_check_if_palindrome_input_palindrome_phrase(self):
+        palindrome = check_if_palindrome('a bc    \t c ba ')
+        expected_result = True
         self.assertEqual(palindrome, expected_result)
 
     def test_when_check_if_palindrome_input_nonpalindrome(self):
         palindrome = check_if_palindrome('abcsdf cba')
-        expected_result = 'No'
+        expected_result = False
         self.assertEqual(palindrome, expected_result)
 
     def test_when_check_if_palindrome_input_None(self):
@@ -31,6 +36,8 @@ class TestCheckPalindrome(unittest.TestCase):
             self.assertRaises(AttributeError, check_if_palindrome(['abccba', '123321']))
         exception_message = str(context.exception)
         self.assertEqual('Input isn`t string type', exception_message)
+
+
 
 
 if __name__ == '__main__':
