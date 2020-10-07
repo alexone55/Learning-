@@ -13,7 +13,7 @@ def count_words(string):
 
 def read_from_file(filename):
     try:
-        f = open(str(filename), 'r')
+        f = open(str(filename), 'r', encoding='utf-8')
     except FileNotFoundError:
         raise FileNotFoundError('File not found')
     text = ''
