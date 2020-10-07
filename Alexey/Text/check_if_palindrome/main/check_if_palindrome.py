@@ -8,16 +8,11 @@ def main():
 
 def check_if_palindrome(sentence):
     sentence = re.sub(r'[^\w]', '', sentence).lower()
-    if sentence == reverse(sentence):
-        massage = "Congrats your sentence is palindrome!"
-        return massage
+    reversed_value = sentence[::-1]
+    if sentence == reversed_value:
+        return True
     else:
-        massage = "This is not palindrome=("
-        return massage
-
-
-def reverse(sentence):
-    return sentence[::-1]
+        return False
 
 
 if __name__ == '__main__':
