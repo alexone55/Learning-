@@ -1,13 +1,6 @@
 def main():
-    numbers = int(input())
-    print(fizzbuzz_cycle(numbers))
-
-
-def fizzbuzz_cycle(numbers):
-    fizz_buzz_numbers = []
-    for number in range(1, numbers + 1):
-        fizz_buzz_numbers.append(fizzbuzz_printer(number))
-    return fizz_buzz_numbers
+    number = int(input())
+    print(fizzbuzz_printer(number))
 
 
 def fizzbuzz_printer(number):
@@ -18,7 +11,7 @@ def fizzbuzz_printer(number):
     elif number % 5 == 0:
         return 'Buzz'
     else:
-        return str(number)
+        return 'Not FizzBuzz'
 
 
 if __name__ == '__main__':
