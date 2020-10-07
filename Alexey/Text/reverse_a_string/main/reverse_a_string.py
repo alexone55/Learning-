@@ -4,6 +4,7 @@ def main():
 
 
 def reverse(word):
+
     return str(word[::-1])
 
 

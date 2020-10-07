@@ -13,9 +13,19 @@ class TestReverseAString(unittest.TestCase):
         actual_set = reverse('02/02/2020')
         self.assertEqual(expect_set, actual_set)
 
-    def test_send_wrong_type_data_and_expext_type_error(self):
+    def test_send_wrong_type_data_and_expect_type_error(self):
         with self.assertRaises(TypeError) as context:
             self.assertRaises(TypeError, reverse(12))
         exception_message = str(context.exception)
         self.assertEqual("'int' object is not subscriptable", exception_message)
+
+    def test_send_symbols_and_expect_revers_symbols(self):
+        expect_set = 't\\n\\0\\'
+        actual_set = reverse('\\0\\n\\t')
+        self.assertEqual(expect_set, actual_set)
+
+    def test_send_another_symbols_and_expect_revers_symbols(self):
+        expect_set = "\t\n\x00"
+        actual_set = reverse('\0\n\t')
+        self.assertEqual(expect_set, actual_set)
 
