@@ -2,25 +2,12 @@ import unittest
 from count_vowels_main import count_vowels
 
 
-class CheckIfPalindromeTest(unittest.TestCase):
+class CountVowelsTest(unittest.TestCase):
 
     def test_count_vowels_with_none_value(self):
-        with self.assertRaises(TypeError) as context:
-            self.assertRaises(TypeError, count_vowels(None))
-        exception_message = str(context.exception)
-        self.assertEqual('TypeError', exception_message)
-
-    def test_ccount_vowels_with_int_value(self):
-        with self.assertRaises(TypeError) as context:
-            self.assertRaises(TypeError, count_vowels(123))
-        exception_message = str(context.exception)
-        self.assertEqual('TypeError', exception_message)
-
-    def test_count_vowels_with_list_value(self):
-        with self.assertRaises(TypeError) as context:
-            self.assertRaises(TypeError, count_vowels(['1', '2', '3', '4']))
-        exception_message = str(context.exception)
-        self.assertEqual('TypeError', exception_message)
+        given_answer = count_vowels(None)
+        expected_value = {'a': 0, 'e': 1, 'i': 0, 'o': 1, 'u': 0}
+        self.assertEqual(expected_value, given_answer)
 
     def test_count_vowels_with_empty_vowel_string(self):
         given_answer = count_vowels('1234567890')
