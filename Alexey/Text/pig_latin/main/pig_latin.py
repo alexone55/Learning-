@@ -4,11 +4,7 @@ def main():
 
 
 def translater(sentence):
-    try:
-        sentence = sentence.lower().split()
-    except AttributeError:
-        raise AttributeError("AttributeError")
-
+    sentence = sentence.lower().split()
     for id, i in enumerate(sentence):
         if sentence[id][0] in "aeiou":
             sentence[id] += 'yay'

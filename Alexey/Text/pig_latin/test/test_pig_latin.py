@@ -6,7 +6,7 @@ class TestPigLatin(unittest.TestCase):
 
     def test_send_none_and_expect_attribute_error(self):
         with self.assertRaises(AttributeError) as context:
-            self.assertRaises(AttributeError, translater(None))
+            translater(None)
         exception_message = str(context.exception)
         self.assertEqual('AttributeError', exception_message)
 
@@ -19,3 +19,9 @@ class TestPigLatin(unittest.TestCase):
         expect_set = "ayay roupgay ofyay ordsway usuallyyay ontainingcay ayay erbvay hattay expressesyay ayay houghttay inyay hetay ormfay ofyay ayay tatementsay"
         actual_set = translater("a group of words, usually containing a verb, that expresses a thought in the form of a statement")
         self.assertEqual(expect_set, actual_set)
+
+    def test_send_number_and_expect_attribute_error(self):
+        with self.assertRaises(AttributeError) as context:
+            translater(1)
+        exception_message = str(context.exception)
+        self.assertEqual("'int' object has no attribute 'lower'", exception_message)
