@@ -8,11 +8,12 @@ def count_of_words_text(input_text):
             words = []
             try:
                 for word in line.split():
-                    words.append(word)
-                    all_words.append(word)
-                len_of_str = [index, len(words)]
-                counter_of_words.append(len_of_str)
-                index += 1
+                    if len(word) > 1:
+                        words.append(word)
+                        all_words.append(word)
+                    len_of_str = [index, len(words)]
+                    counter_of_words.append(len_of_str)
+                    index += 1
             except AttributeError:
                 raise AttributeError('AttributeError, The text contains invalid symbols')
         return counter_of_words, len(all_words)
