@@ -1,5 +1,5 @@
 import unittest
-from count_words_in_a_string import read_from_file
+from Misha.Text.count_words_in_a_string.count_words_in_a_string import read_from_file
 
 
 class ReadFromFileTest(unittest.TestCase):

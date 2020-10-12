@@ -6,7 +6,6 @@ def count_words(string):
     amount_of_words = 0
     for word in wordlist:
         if (word.isdigit() != True) and (word != '-') and (word != ''):
-            print(word)
             amount_of_words += 1
     return amount_of_words
 
@@ -19,7 +18,6 @@ def read_from_file(filename):
     text = ''
     for line in f:
         text += line
-    print(text)
     return text
 
 
