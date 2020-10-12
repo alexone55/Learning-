@@ -12,13 +12,13 @@ class FizzBuzzTest(unittest.TestCase):
 
     def test_when_input_str(self):
         with self.assertRaises(TypeError) as context:
-            self.assertRaises(TypeError, cycle_fizzbuzz(None))
+            self.assertRaises(TypeError, cycle_fizzbuzz('sdfsdf'))
         exception_message = str(context.exception)
         self.assertEqual('Number isn`t int type: ', exception_message)
 
     def test_when_input_zero(self):
         fizzbuzz = cycle_fizzbuzz(0)
-        expected_results = ['FizzBuzz']
+        expected_results = [('FizzBuzz', 0)]
         self.assertEqual(fizzbuzz, expected_results)
 
     def test_when_input_is_negative(self):
@@ -27,8 +27,8 @@ class FizzBuzzTest(unittest.TestCase):
         self.assertEqual(output, expected_results)
 
     def test_when_input_is_normal(self):
-        output = cycle_fizzbuzz(10)
-        expected_results = ['FizzBuzz', 1, 2, 'Fizz', 4, 'Buzz', 'Fizz', 7, 8, 'Fizz', 'Buzz']
+        output = cycle_fizzbuzz(12)
+        expected_results = [('FizzBuzz', 0), ('Fizz', 3), ('Buzz', 5), ('Fizz', 6), ('Fizz', 9), ('Buzz', 10), ('Fizz', 12)]
         self.assertEqual(output, expected_results)
 
 
