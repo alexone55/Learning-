@@ -22,4 +22,9 @@ class TestRegexQueryTool(unittest.TestCase):
         with self.assertRaises(TypeError) as context:
             self.assertRaises(TypeError, reg_expression(None))
         exception_message = str(context.exception)
-        self.assertEqual('startswith first arg must be str or a tuple of str, not NoneType', exception_message)
+        self.assertEqual('first argument must be string or compiled pattern', exception_message)
+
+    def test_send_days_pattern_and_expect_date_(self):
+        expect_set = ['ABC 67-8945 12-01-2009']
+        actual_set = reg_expression('\d{2}-\d{2}-\d{4}')
+        self.assertEqual(expect_set, actual_set)

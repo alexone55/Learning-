@@ -1,3 +1,4 @@
+import re
 def main():
     pattern = str(input("Enter a pattern: "))
     print(reg_expression(pattern))
@@ -15,8 +16,8 @@ def data_loader():
 def reg_expression(pattern):
     names = data_loader()
     matches = []
-    for name in names:
-        if name.startswith(pattern):
+    for id, name in enumerate(names):
+        if re.findall(pattern, names[id]):
             matches.append(name.strip("\n"))
         else:
             pass
