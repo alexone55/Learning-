@@ -34,6 +34,13 @@ class CountWordsTest(unittest.TestCase):
         expected_value = 3
         self.assertEqual(expected_value, amount_of_words)
 
+    def test_count_words_with_war_and_peace(self):
+        input_text = open('./text.txt', 'r', encoding='utf8')
+        text = count_of_words_input(input_text)
+        amount_of_words = text[-1]
+        expected_value = 552274
+        self.assertEqual(expected_value, amount_of_words)
+
 
 if __name__ == '__main__':
     unittest.main()
