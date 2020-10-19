@@ -19,15 +19,15 @@ class TaggerTest(unittest.TestCase):
 
     def test_tag_setter_with_wrong_dict(self):
         audiofile = eyed3.load('Распродажа_на_AliExpress_Максим_Галкин.mp3')
-        tags_dict = {'artist': audiofile.tag.artist,
-                     'album': audiofile.tag.album,
-                     'album artist': audiofile.tag.album_artist,
-                     'title': audiofile.tag.title,
-                     'track number': audiofile.tag.track_num}
+        tags_dict = {'artist': 'artist_name',
+                     'album': 'album_name',
+                     'album artist': 'alb_artist_name',
+                     'title': 'audio_title',
+                     'track number': (1, 1)}
         with self.assertRaises(KeyError) as context:
             self.assertRaises(KeyError, set_tag(audiofile, tags_dict))
         exception_message = str(context.exception)
-        self.assertEqual('Key error', exception_message)
+        self.assertEqual('', exception_message)
 
     def test_tag_setter_with_right_dict(self):
         audiofile = eyed3.load('Распродажа_на_AliExpress_Максим_Галкин.mp3')

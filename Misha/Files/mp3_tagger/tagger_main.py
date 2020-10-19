@@ -31,7 +31,7 @@ def set_tag(audiofile, tags_dict):
         audiofile.tag.track_num = tags_dict['track num']
         audiofile.tag.save()
     except KeyError:
-        raise KeyError('Key error')
+        raise KeyError
 
 
 def main():
