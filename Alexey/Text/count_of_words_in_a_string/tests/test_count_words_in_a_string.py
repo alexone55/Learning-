@@ -21,6 +21,7 @@ class TestCountWordsInAString(unittest.TestCase):
         self.assertEqual('expected string or bytes-like object', exception_message)
 
     def test_send_war_and_peace_and_expect_count_of_words(self):
+        expect_set = 576171
         text = open("war_and_peace.txt", "r")
-        count = words_counter(text.read())
-        print(count)
+        actual_set = words_counter(text.read())
+        self.assertEqual(expect_set, actual_set)
