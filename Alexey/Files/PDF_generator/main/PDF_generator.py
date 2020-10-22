@@ -15,10 +15,9 @@ def pdf_file_writer(text):
 
 
 def txt_file_reader(file_name):
-    with open(file_name, 'r', encoding='utf-8') as object_from_txt:
+    with open(file_name, 'r') as object_from_txt:
         text_from_txt = object_from_txt.read()
 
-    print(text_from_txt)
     return text_from_txt
 
 

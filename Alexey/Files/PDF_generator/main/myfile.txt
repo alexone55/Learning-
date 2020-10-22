@@ -1,3 +1,1 @@
-Any string in english
-любая строка на русском
-任何字符串在中國
+Any string in english from txt
