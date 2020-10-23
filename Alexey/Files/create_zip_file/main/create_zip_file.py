@@ -1,16 +1,25 @@
 from zipfile import ZipFile
+import os
 
 
 def main():
-    file_path_or_name = str(input("Enter file name or path"))
-    archive_maker(file_path_or_name)
-    # func which add file to archive
-    # func which unpack file from archive
+    archive_maker(all_files_in_folder())
 
 
-def archive_maker(file_path_or_name):
-    with open('NewZip.zip', 'w') as zip_obj:
-        zip_obj.write(file_path_or_name)
+def all_files_in_folder():
+    current_dir = os.getcwd()
+    files = []
+    for filename in os.listdir(current_dir):
+        files.append(filename)
+    print(files)
+    return files
+
+
+def archive_maker(all_files_in_folder):
+    with ZipFile('NewZip.zip', 'w') as zip_obj:
+        for file in all_files_in_folder:
+            zip_obj.write(file)
+        zip_obj.close()
 
 
 if __name__ == '__main__':
