@@ -1,0 +1,6 @@
+--disable-notifications
+--disable-infobars
+--mute-audio
+
+
+
