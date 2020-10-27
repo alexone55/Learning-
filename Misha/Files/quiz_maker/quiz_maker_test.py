@@ -7,14 +7,13 @@ from quiz_maker_main import \
     count_points
 
 
-class ZipTest(unittest.TestCase):
+class QuizMakerTest(unittest.TestCase):
 
-    def test_get_questions_with_wrong_paths(self):
-        path = 'wrong_path.txt'
-        with self.assertRaises(FileNotFoundError) as context:
-            self.assertRaises(get_questions(path))
+    def test_get_questions_with_empty_file(self):
+        with self.assertRaises(OSError) as context:
+            self.assertRaises(get_questions('Документ Microsoft Word.docx'))
         exception_message = str(context.exception)
-        self.assertEqual('File not found', exception_message)
+        self.assertEqual('File is empty!', exception_message)
 
     def test_get_questions_with_right_paths(self):
         path = 'questions.txt'
@@ -25,13 +24,6 @@ class ZipTest(unittest.TestCase):
                               3: 'Какое пиво самое крепкое?\nа. Жиуглевское\nб. Тетерев\nв. Московское\nг. Опилля'}
         questions = get_questions(path)
         self.assertEqual(expected_questions, questions)
-
-    def test_get_answer_list_wrong_paths(self):
-        path = 'wrong_path.txt'
-        with self.assertRaises(FileNotFoundError) as context:
-            self.assertRaises(get_answers_list(path))
-        exception_message = str(context.exception)
-        self.assertEqual('File not found', exception_message)
 
     def test_get_answer_list_with_right_paths(self):
         path = 'answers.txt'
@@ -58,10 +50,10 @@ class ZipTest(unittest.TestCase):
                      '2': 'Кто пидумал современную архитектуру ЭВМ?\nа. Джон фон-Нейман\nб. Карл Цузе\nв. '
                           'Бьярне Страусструп\nг. Илон Маск',
                      1337: 'Какое пиво самое крепкое?\nа. Жиуглевское\nб. Тетерев\nв. Московское\nг. Опилля'}
-        with self.assertRaises(KeyError) as context:
+        with self.assertRaises(ValueError) as context:
             self.assertRaises(get_given_amount_of_random_questions(number_of_questions, questions))
         exception_message = str(context.exception)
-        self.assertEqual('', exception_message)
+        self.assertEqual('Unexpected keys', exception_message)
 
     def test_get_given_amount_of_random_questions_with_right_input(self):
         number_of_questions = 3

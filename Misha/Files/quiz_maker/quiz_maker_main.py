@@ -4,18 +4,21 @@ import os
 
 
 def get_questions(path):
-    if not os.path.exists(path):
-        raise FileNotFoundError('File not found')
+    if os.path.getsize(path) == 0:
+        raise OSError('File is empty!')
     else:
-        f = open(path, 'r', encoding='utf-8')
-        text = ''
-        for line in f:
-            text += line
-        f.close()
-        questions = text.split('\n\n')
-        questions_dict = {}
-        for index in range(len(questions)):
-            questions_dict[index] = questions[index]
+        try:
+            f = open(path, 'r', encoding='utf-8')
+            text = ''
+            for line in f:
+                text += line
+            f.close()
+            questions = text.split('\n\n')
+            questions_dict = {}
+            for index in range(len(questions)):
+                questions_dict[index] = questions[index]
+        finally:
+            f.close()
         return questions_dict
 
 
@@ -26,30 +29,28 @@ def get_given_amount_of_random_questions(number_of_questions, questions):
         if number_of_questions == len(questions):
             return questions
         else:
-            random.seed(time.time())
-            number_of_questions_to_remove = len(questions) - number_of_questions
-            for rand_value in range(number_of_questions_to_remove):
-                rand_index = random.randint(0, number_of_questions_to_remove)
-                try:
+            expected_keys = [i for i in range(len(questions))]
+            if expected_keys != list(questions.keys()):
+                raise ValueError('Unexpected keys')
+            else:
+                random.seed(time.time())
+                number_of_questions_to_remove = len(questions) - number_of_questions
+                for rand_value in range(number_of_questions_to_remove):
+                    rand_index = random.randint(-1, number_of_questions_to_remove)
                     while questions.get(rand_index) is None:
                         rand_index = random.randint(-1, number_of_questions_to_remove)
                     questions.pop(rand_index)
-                except KeyError:
-                    raise KeyError
-            return questions
+                return questions
 
 
 def get_answers_list(path):
-    if not os.path.exists(path):
-        raise FileNotFoundError('File not found')
-    else:
-        f = open(path, 'r', encoding='utf-8')
-        key_answers = ''
-        for line in f:
-            key_answers += line
-        f.close()
-        key_answers = key_answers.split('\n')
-        return key_answers
+    f = open(path, 'r', encoding='utf-8')
+    key_answers = ''
+    for line in f:
+        key_answers += line
+    f.close()
+    key_answers = key_answers.split('\n')
+    return key_answers
 
 
 def get_needed_answers(key_answers, questions_keys):
@@ -82,7 +83,6 @@ def start_test(questions):
 def main():
     questions = get_questions('questions.txt')
     print(get_answers_list('answers.txt'))
-    print(questions.keys())
     print('Всего вопросов:', len(questions))
     required_number_of_questions = int(input('Введите кол-во вопросов, на которые хотите ответить: '))
     questions = get_given_amount_of_random_questions(required_number_of_questions, questions)
