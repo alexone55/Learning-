@@ -22,8 +22,6 @@ def get_questions(path):
 def get_given_amount_of_random_questions(number_of_questions, questions):
     if number_of_questions > len(questions) or number_of_questions < 1:
         raise ValueError('Wrong number of questions was given')
-    elif type(questions) != dict:
-        raise TypeError('Given not dict')
     else:
         if number_of_questions == len(questions):
             return questions
@@ -55,13 +53,10 @@ def get_answers_list(path):
 
 
 def get_needed_answers(key_answers, questions_keys):
-    if type(key_answers) != list or type(questions_keys) != list:
-        raise TypeError('Given not list')
-    else:
-        needed_answers = {}
-        for key in questions_keys:
-            needed_answers[key] = key_answers[key]
-        return needed_answers
+    needed_answers = {}
+    for key in questions_keys:
+        needed_answers[key] = key_answers[key]
+    return needed_answers
 
 
 def count_points(given_answers, key_answers):
