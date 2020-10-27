@@ -1,4 +1,3 @@
-import csv
 import unittest
 from Alexey.Files.sort_csv.main.sort_csv import csv_reader, write_csv
 
@@ -20,4 +19,3 @@ class TestSortCsv(unittest.TestCase):
         write_csv(['1', '2', '3', '4', '5', '6', '7'], 'myfile_writed.csv')
         actual_set = csv_reader('myfile_writed.csv')
         self.assertEqual(expect_set, actual_set)
-

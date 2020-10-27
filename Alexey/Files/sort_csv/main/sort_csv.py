@@ -1,25 +1,24 @@
 import csv
+import logging
 from Alexey.Algorithms.OB_125.sorting.bubble_sort import sort as bubble_sort
-from Alexey.Algorithms.OB_125.sorting.merge_sort import sort as merge_sort
 
 
 def main():
     file_name = str(input('Enter a file name: '))
-    answer = str(input('Enter what type of sort you want: m/b '))
-    if answer == 'm':
+    answer = str(input('Enter what type of sort you want: a/d '))
+    if answer == 'd':
         list_of_values = csv_reader(file_name)
-        sorted_values = merge_sort(list_of_values)
-        write_csv(sorted_values, file_name)
-    elif answer == 'b':
+        sorted_values = bubble_sort(list_of_values)
+        write_csv(sorted_values[::-1], file_name)
+    elif answer == 'a':
         list_of_values = csv_reader(file_name)
         sorted_values = bubble_sort(list_of_values)
         write_csv(sorted_values, file_name)
     else:
-        print("something wrong")
+        logging.error("Wrong parameter")
 
 
 def write_csv(sorted_values, file_name):
-
     with open(file_name, 'w', encoding='utf-16') as file:
         for row in sorted_values:
             file.write(row[0])
