@@ -1,12 +1,13 @@
 import unittest
-from pdf_converter_main import read_from_file, change_format_to_pdf
+import os
+from pdf_converter_main import read_from_file, change_format_to_pdf, convert_to_pdf
 
 
 class PDFConverterTest(unittest.TestCase):
 
     def test_read_from_file_with_wrong_path(self):
         with self.assertRaises(FileNotFoundError) as context:
-            self.assertRaises(FileNotFoundError, read_from_file('path/to/file/'))
+            self.assertRaises(read_from_file('path/to/file/'))
         exception_message = str(context.exception)
         self.assertEqual('No such file or directory', exception_message)
 
@@ -17,7 +18,7 @@ class PDFConverterTest(unittest.TestCase):
 
     def test_change_format_to_pdf_with_wrong_path(self):
         with self.assertRaises(TypeError) as context:
-            self.assertRaises(TypeError, change_format_to_pdf('path/to/file/'))
+            self.assertRaises(change_format_to_pdf('path/to/file/'))
         exception_message = str(context.exception)
         self.assertEqual('Not path given', exception_message)
 
@@ -25,6 +26,17 @@ class PDFConverterTest(unittest.TestCase):
         path = change_format_to_pdf('path.txt')
         expected_value = 'path.pdf'
         self.assertEqual(expected_value, path)
+
+    def test_create_pdf_with_long_string_without_blanks(self):
+        text = read_from_file('longstr.txt')
+        path_to_pdf = change_format_to_pdf('longstr.txt')
+        convert_to_pdf(text, path_to_pdf)
+        expected_answer = True
+        if os.path.exists(path_to_pdf):
+            actual_answer = True
+        else:
+            actual_answer = False
+        self.assertEqual(expected_answer, actual_answer)
 
 
 if __name__ == '__main__':

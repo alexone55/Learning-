@@ -3,11 +3,12 @@ from fpdf import FPDF
 
 def read_from_file(path):
     try:
-        f = open(str(path), 'r')
+        f = open(str(path), 'r', encoding='latin-1')
         text = ''
         for line in f:
             text += line
         f.close()
+        print(text)
         return text
     except FileNotFoundError:
         raise FileNotFoundError('No such file or directory')
@@ -31,7 +32,8 @@ def convert_to_pdf(text, path):
     pdf = FPDF(orientation='P', format='A4')
     pdf.add_page()
     pdf.set_font("Arial", size=12)
-    pdf.cell(50, 10, txt=text, ln=1, align="C")
+    pdf.set_auto_page_break(auto=True)
+    pdf.multi_cell(w=200, h=10, txt=text)
     pdf.output(path)
 
 
@@ -42,7 +44,7 @@ def main():
     #test_file.ibc
     #test_file.txt
     text = read_from_file(path)
-    change_format_to_pdf(path)
+    path = change_format_to_pdf(path)
     convert_to_pdf(text, path)
 
 
