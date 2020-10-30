@@ -38,7 +38,7 @@ def check_if_alpha_and_spaces_only(text):
 
 def check_and_return_input_to_encrypt():
     text = input('Enter message to encrypt: ')
-    if not isinstance(text, str):
+    if not isinstance(text, str) and len(text) < 1:
         raise TypeError('Your message isn`t string type: ')
     if True:
         check_if_alpha_and_spaces_only(text)
