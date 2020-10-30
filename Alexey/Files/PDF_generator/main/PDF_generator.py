@@ -3,14 +3,14 @@ from fpdf import FPDF
 
 def main():
     file_name = str(input("Enter file name: "))
-    pdf_file_writer(txt_file_reader(file_name))
+    pdf_file_writer(txt_file_reader('myfile.txt'))
 
 
 def pdf_file_writer(text):
     pdf = FPDF()
     pdf.add_page()
-    pdf.set_font('Arial', 'B', 16)
-    pdf.cell(50, 10, txt=text, ln=1, align="C")
+    pdf.set_font('Arial', 'B', 12)
+    pdf.multi_cell(180, 10, txt=text)
     pdf.output('output.pdf')
 
 

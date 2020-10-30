@@ -24,3 +24,7 @@ class TestPdfGenerator(unittest.TestCase):
         exception_message = str(context.exception)
         self.assertEqual("[Errno 2] No such file or directory: 'wrong_file.txt'", exception_message)
 
+    def test_add_big_line_file_and_get_text(self):
+        expect_set = "Any string in english from txt"
+        actual_set = pdf_file_writer("onebigsinglelinetoaddinpdf-------------------------------111111111111112222222222222222222222222")
+        self.assertEqual(expect_set, actual_set)
