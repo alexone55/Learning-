@@ -2,16 +2,13 @@ from fpdf import FPDF
 
 
 def read_from_file(path):
-    try:
-        f = open(str(path), 'r', encoding='latin-1')
-        text = ''
-        for line in f:
-            text += line
-        f.close()
-        print(text)
-        return text
-    except FileNotFoundError:
-        raise FileNotFoundError('No such file or directory')
+    f = open(str(path), 'r', encoding='latin-1')
+    text = ''
+    for line in f:
+        text += line
+    f.close()
+    print(text)
+    return text
 
 
 def change_format_to_pdf(path):
