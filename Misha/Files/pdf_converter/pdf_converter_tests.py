@@ -12,7 +12,7 @@ class PDFConverterTest(unittest.TestCase):
 
     def test_change_format_to_pdf_with_wrong_path(self):
         with self.assertRaises(TypeError) as context:
-            self.assertRaises(change_format_to_pdf('path/to/file/'))
+            change_format_to_pdf('path/to/file/')
         exception_message = str(context.exception)
         self.assertEqual('Not path given', exception_message)
 
