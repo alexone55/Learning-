@@ -11,7 +11,7 @@ class QuizMakerTest(unittest.TestCase):
 
     def test_get_questions_with_empty_file(self):
         with self.assertRaises(OSError) as context:
-            self.assertRaises(get_questions('Документ Microsoft Word.docx'))
+            get_questions('Документ Microsoft Word.docx')
         exception_message = str(context.exception)
         self.assertEqual('File is empty!', exception_message)
 
@@ -39,7 +39,7 @@ class QuizMakerTest(unittest.TestCase):
                         'Бьярне Страусструп\nг. Илон Маск',
                      3: 'Какое пиво самое крепкое?\nа. Жиуглевское\nб. Тетерев\nв. Московское\nг. Опилля'}
         with self.assertRaises(ValueError) as context:
-            self.assertRaises(get_given_amount_of_random_questions(number_of_questions, questions))
+            get_given_amount_of_random_questions(number_of_questions, questions)
         exception_message = str(context.exception)
         self.assertEqual('Wrong number of questions was given', exception_message)
 
@@ -51,7 +51,7 @@ class QuizMakerTest(unittest.TestCase):
                           'Бьярне Страусструп\nг. Илон Маск',
                      1337: 'Какое пиво самое крепкое?\nа. Жиуглевское\nб. Тетерев\nв. Московское\nг. Опилля'}
         with self.assertRaises(ValueError) as context:
-            self.assertRaises(get_given_amount_of_random_questions(number_of_questions, questions))
+            get_given_amount_of_random_questions(number_of_questions, questions)
         exception_message = str(context.exception)
         self.assertEqual('Unexpected keys', exception_message)
 
