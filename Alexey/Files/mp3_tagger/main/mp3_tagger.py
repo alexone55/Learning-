@@ -39,15 +39,13 @@ def tags_dictionary(answer, audio):
 
 
 def add_tags(audio, new_dictionary):
-    try:
-        audio.tag.artist = new_dictionary['artist']
-        audio.tag.album = new_dictionary['album']
-        audio.tag.album_artist = new_dictionary['album artist']
-        audio.tag.title = new_dictionary['title']
-        audio.tag.track_num = new_dictionary['track num']
-        audio.tag.save()
-    except KeyError:
-        raise KeyError('Wrong tag or tags count')
+    audio.tag.artist = new_dictionary['artist']
+    audio.tag.album = new_dictionary['album']
+    audio.tag.album_artist = new_dictionary['album artist']
+    audio.tag.title = new_dictionary['title']
+    audio.tag.track_num = new_dictionary['track num']
+    audio.tag.save()
+
 
 
 if __name__ == '__main__':
