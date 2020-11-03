@@ -10,7 +10,7 @@ class TestSortCsv(unittest.TestCase):
 
     def test_send_wrong_filename_and_expect_error(self):
         with self.assertRaises(FileNotFoundError) as context:
-            self.assertRaises(FileNotFoundError, csv_reader("myfile1.csv"))
+            FileNotFoundError, csv_reader("myfile1.csv")
         exception_message = str(context.exception)
         self.assertEqual("[Errno 2] No such file or directory: 'myfile1.csv'", exception_message)
 
