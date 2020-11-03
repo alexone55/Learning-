@@ -5,17 +5,17 @@ import fpdf
 class TestPdfGenerator(unittest.TestCase):
     def test_open_txt_file_and_get_text(self):
         expect_set = "Any string in english from txt"
-        actual_set = txt_file_reader("myfile.txt")
+        actual_set = txt_file_reader("test_resource/myfile.txt")
         self.assertEqual(expect_set, actual_set)
 
     def test_open_html_file_and_get_text(self):
         expect_set = "Any string in english from html"
-        actual_set = txt_file_reader("myfile.html")
+        actual_set = txt_file_reader("test_resource/myfile.html")
         self.assertEqual(expect_set, actual_set)
 
     def test_open_ibc_file_and_get_text(self):
         expect_set = "Any string in english from ibc"
-        actual_set = txt_file_reader("myfile.ibc")
+        actual_set = txt_file_reader("test_resource/myfile.ibc")
         self.assertEqual(expect_set, actual_set)
 
     def test_open_wrong_file_and_expect_error(self):
