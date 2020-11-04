@@ -3,7 +3,7 @@ from fpdf import FPDF
 
 def main():
     file_name = str(input("Enter file name: "))
-    pdf_file_writer(txt_file_reader('myfile.txt'))
+    pdf_file_writer(txt_file_reader(file_name))
 
 
 def pdf_file_writer(text):
