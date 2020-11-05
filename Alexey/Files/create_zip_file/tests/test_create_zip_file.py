@@ -10,11 +10,25 @@ class TestCreateZipFileMaker(unittest.TestCase):
         self.assertEqual(expect_set, actual_set)
 
     def test_make_new_zip_file(self):
-        expect_set = ['NewZip.zip']
+        expect_set = 'NewZip.zip'
         archive_maker(all_files_in_folder())
-        actual_set = []
-        files_set = all_files_in_folder()
-        for file in files_set:
-            if file == 'NewZip.zip':
-                actual_set.append(file)
+        actual_set = all_files_in_folder()
+        self.assertEqual(expect_set, actual_set[0])
+
+    def test_make_archive_with_one_file(self):
+        expect_set = True
+        archive_maker(['test_file.txt'], 'one_file.zip', )
+        actual_set = os.path.isfile('one_file.zip')
+        self.assertEqual(expect_set, actual_set)
+
+    def test_make_archive_with_many_files(self):
+        expect_set = True
+        archive_maker(['test_file.txt', 'NewZip.zip'], 'many_files.zip')
+        actual_set = os.path.isfile('many_files.zip')
+        self.assertEqual(expect_set, actual_set)
+
+    def test_add_empty_folder_to_zip_archive(self):
+        expect_set = True
+        archive_maker(['test_add_empty_folder_to_zip'], 'empty_folder.zip')
+        actual_set = os.path.isfile('empty_folder.zip')
         self.assertEqual(expect_set, actual_set)

@@ -3,7 +3,8 @@ import os
 
 
 def main():
-    archive_maker(all_files_in_folder())
+    file_name = str(input('Enter file name: ') + '.zip')
+    archive_maker(all_files_in_folder(), file_name)
 
 
 def all_files_in_folder():
@@ -11,14 +12,16 @@ def all_files_in_folder():
     files = []
     for filename in os.listdir(current_dir):
         files.append(filename)
-    print(files)
     return files
 
 
-def archive_maker(all_files_in_folder):
-    with ZipFile('NewZip.zip', 'w') as zip_obj:
-        for file in all_files_in_folder:
-            zip_obj.write(file)
+def archive_maker(all_files_in_folder, file_name='untitled.zip'):
+    with ZipFile(file_name, 'w') as zip_obj:
+        if len(all_files_in_folder) == 1:
+            zip_obj.write(all_files_in_folder[0])
+        elif len(all_files_in_folder) > 1:
+            for file in all_files_in_folder:
+                zip_obj.write(file)
         zip_obj.close()
 
 
