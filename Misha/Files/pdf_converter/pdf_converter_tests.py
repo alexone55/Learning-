@@ -25,13 +25,5 @@ class PDFConverterTest(unittest.TestCase):
         text = read_from_file('longstr.txt')
         path_to_pdf = change_format_to_pdf('longstr.txt')
         convert_to_pdf(text, path_to_pdf)
-        expected_answer = True
-        if os.path.exists(path_to_pdf):
-            actual_answer = True
-        else:
-            actual_answer = False
-        self.assertEqual(expected_answer, actual_answer)
-
-
-if __name__ == '__main__':
-    unittest.main()
+        actual_answer = os.path.exists(path_to_pdf)
+        self.assertTrue(actual_answer)
