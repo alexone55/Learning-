@@ -43,11 +43,10 @@ class TaggerTest(unittest.TestCase):
         self.assertEqual('Invalid file type', exception_message)
 
     @patch('builtins.input', side_effect=['Распродажа_на_AliExpress_Максим_Галкин.mp3'])
-    def test_main_2(self, mock_input):
-        expected_value = 0
-        actual_value = main()
-        self.assertEqual(expected_value, actual_value)
-
-
-if __name__ == '__main__':
-    unittest.main()
+    @patch('tagger_main.get_tag')
+    @patch('tagger_main.input_mp3_file_name')
+    def test_main_2(self, mock_input, mock_get_tag, mock_input_mp3_file_name):
+        main()
+        mock_input.assert_called_once_with('Распродажа_на_AliExpress_Максим_Галкин.mp3')
+        mock_get_tag.assert_called_once()
+        mock_input_mp3_file_name.assert_called_once()
