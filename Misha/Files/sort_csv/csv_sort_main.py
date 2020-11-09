@@ -19,10 +19,7 @@ def input_sort_type():
     if sort_type != '1' and sort_type != '0':
         raise ValueError('Incorrect input')
     else:
-        if sort_type == '1':
-            return True
-        else:
-            return False
+        return sort_type == '1'
 
 
 def input_column_name(column_names):
