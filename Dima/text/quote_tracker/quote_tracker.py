@@ -1,4 +1,5 @@
 import time
+import logging
 import csv
 from datetime import datetime
 from os import path
@@ -6,6 +7,7 @@ from Dima.text.quote_tracker.chrome_driver_options import get_chrome_driver
 
 
 file = 'quotes.csv'
+logging.basicConfig(filename="log.txt", format="{asctime} {levelname:<8} {message}", style="{", level=logging.INFO, )
 
 
 def scrap(quote_name, file, driver, period):
@@ -20,7 +22,7 @@ def scrap(quote_name, file, driver, period):
             new_data = get_data_from_url(quote_name, driver)
             if new_data != data:
                 write_to_csv(file, headers, new_data)
-                print('Difference:', -round((data[1] - new_data[1]), 2), 'Data/Time:', data[2])
+                logging.info(f'Difference:, {-round((data[1] - new_data[1]), 2)}, "Data/Time:", {data[2]}')
             data = new_data
             counter += 1
     finally:
