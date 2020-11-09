@@ -1,0 +1,6 @@
+INFO:root:Sorted data
+INFO:root:['Гулина', 'Алена', 'Евгеньевна', 'OU005', 'Бухгалтер', 'agulina@region.ru', '', '', '132', '', 'agulina', 'agulina']
+INFO:root:['Калашников', 'Евгений', 'Валентинович', 'OU005', 'Руководитель филиала', '', '', '', '440', '', 'ekalashnikov', 'ekalashnikov']
+INFO:root:['Иванова', 'Ирина', 'Витальевна', 'OU002', 'Бухгалтер', 'iivanova@service.ru', '88002000600', '', '131', '', 'iivanova', 'iivanova']
+INFO:root:['Сергеев', 'Константин', 'Игоревич', 'OU002', 'Руководитель отдела', 'ksergeev@service.ru', '', '', '201', '', 'ksergeev', 'ksergeev']
+INFO:root:['Бучельников', 'Николай', 'Иванович', 'OU003', 'Специалист', 'nbuchelnikov@service.ru', '', '', '201', '', 'nbuchelnikov', 'nbuchelnikov']
