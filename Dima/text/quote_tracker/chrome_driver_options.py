@@ -5,7 +5,8 @@ from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 
 
-logging.basicConfig(format="{asctime} {levelname:<8} {message}", filename="log.txt", filemode='a', style="{", level=logging.DEBUG)
+logging.basicConfig(format="{asctime} {levelname:<8} {message}", filename="log.txt",
+                    filemode='a', style="{", level=logging.DEBUG)
 
 
 def get_chrome_driver():

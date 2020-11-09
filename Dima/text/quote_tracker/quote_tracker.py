@@ -7,7 +7,8 @@ from Dima.text.quote_tracker.chrome_driver_options import get_chrome_driver
 
 
 file = 'quotes.csv'
-logging.basicConfig(filename="log.txt", format="{asctime} {levelname:<8} {message}", style="{", level=logging.INFO, )
+logging.basicConfig(filename="log.txt", format="{asctime} {levelname:<8} {message}",
+                    style="{", level=logging.INFO, )
 
 
 def scrap(quote_name, file, driver, period):
@@ -56,7 +57,6 @@ def input_tracker_parameters():
 
 
 def main():
-    # quote_name, period = input_tracker_parameters()
     quote_name = 'AAPL'
     period = 3
     driver = get_chrome_driver()

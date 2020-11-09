@@ -40,16 +40,3 @@ class QuoteTrackerTest(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
-
-# TESTS
-"""
-
-    def get_mocked_driver():
-        mock_to_return = Mock()
-        mock_to_return.get = Mock()
-        mock_to_return.get.return_value = opt_code()
-        return mock_to_return 
-
-        chrome_driver_mock.assert_called_with
-        get_data_from_url_mock.assert_called_with
-"""
